@@ -1,0 +1,277 @@
+﻿Univerzitet u Sarajevu
+Elektrotehnički fakultet
+Objektno orijentirana analiza i dizajn
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+OOAD Projekt
+"Informacioni sistem za privatnu kliniku"
+
+
+
+
+Prof. dr. sc. Dženana Đonko, dipl. ing. el.
+Emir Cogo, dipl. ing. el.
+
+
+
+
+
+
+
+
+
+
+Tim "Medica":                
+Aljić Velid
+Boja Nermin
+Pencl Deni
+
+
+
+
+
+
+
+
+Mart, 2015. g.
+
+
+Opis teme projekta
+        
+        Temu našeg projekta predstavlja privatna klinika koja pruža usluge osnovnih liječničkih usluga (rutinski pregledi, porodična medicina, dijagnostika) kao i širok opseg hirurških zahvata.
+Dakle, klinika zapošljava doktore opće medicine i hirurge, ali i pored njih su potrebne medicinske sestre, anesteziolozi i raznovrsno pomoćno osoblje. Klinika posjeduje prostorije za preglede i konsultacije, operacione sale i sobe za oporavak pacijenata. Svaki pacijent može birati liječnika koji će ga liječiti ili hirurga za izvođenje nekog zahvata, pod uslovom da je hirurg kvalificiran za tu vrstu zahvata. Ukoliko je pacijentu svejedno koji doktor će ga liječiti, dodjeljuje mu se dežurni liječnik koji može biti od pomoći. Poslije svake operacije pacijent se smiješta u slobodnu sobu za oporavak. Nakon pregleda pacijenta liječnik opće medicine može zakazati operativni zahvat, pri čemu bira odgovarajućeg hirurga, nakon čega hirurg mora odabrati slobodnu salu i termin operacije.
+Informacije o svakom pacijentu se zapisuju u njegov zdravstveni karton.
+        Evidencija uposlenika, koordinacija doktora i slobodnih sala, bilježenje informacija o pacijentima u njihove kartone i obavljanje svih prijava i interakcija između pacijenata i doktora kao i između različitih odjela je jako kompleksan zadatak koji često biva neefikasno riješen.
+        Dakle, želimo sve te procese objediniti unutar jednog informacionog sistema, tačnije jedne aplikacije preko koje bi se pacijenti mogli prijaviti na svoj već postojeći račun i imati uvid u svoj zdravstveni karton, zakazivati preglede ili stvoriti korisnički račun po prvi put na klinici, ali preko koje bi i svo medicinsko osoblje i poslodavac imali uvid u raspored doktora i općenito stanje u klinici. Pacijenti preko svog korisničkog računa imaju uvid u profile liječnika zaposlenih na klinici kako bi mogli lakše odabrati odgovarajućeg doktora, a nakon tretmana i ocijeniti kvalitet pruženih usluga. Poslodavac može upratiti koliko svaki doktor obavlja pregleda/operacija i kakve su mu ocjene i na osnovu toga ima mogućnost obračunavanja bonusa i ukupne plate doktorima. Nakon odabira operacije i željenog hirurga, pacijent je dužan prvo javiti se dežurnom doktoru opće medicine na zdravstveni pregled. Pri tome mu aplikacija odmah rezerviše slobodan termin. Ako doktor odredi da se operativni zahvat može izvršiti, tj. odluči da je on uistinu potreban i ocijeni da je pacijent dovoljno zdrav da bi podnio operaciju, unutar sistema bira hirurga i šalje mu informacije o kojem se pacijentu radi, koji su ponuđeni termini koji odgovaraju pacijentu i koliko je hitan zahvat. Hirurg nakon toga odabire termin i rezerviše salu. Kako je za operacije, preglede i njegu pacijenata potreban i određeni materijal, poslodavac (direktor klinike) će moći stalno imati uvid u inventar i po potrebi ga dopunjavati.
+        Pri zapošljavanju doktora i prilikom izrade novog računa pacijenta namjeravamo kao vanjski uređaj koristiti web-kameru tako što ćemo implementirati direktno slikanje za sliku profila.
+
+
+
+
+
+
+
+
+Opisi procesa (Use Cases)
+
+
+Prijava pacijenta
+
+
+Glavni akter:
+* Pacijent
+Interesi:
+* Pacijent želi pristupiti svom računu.
+Preduslovi:
+* Ispravno uneseni podaci.
+Rezultat:
+* Prijava pacijenta za pregled ili operaciju.
+Osnovni tok (Scenarij):
+* Korisnik pristupa računaru u klinici.
+* Unosi svoje podatke u računar.
+* Ukoliko je sve uradio ispravno, otvara mu se karton u klinici.
+Alternativni tok:
+* Korisnik nije unio ispravne podatke.
+* Korisnik je maloljetan, što znači da treba biti prisutan i jedan roditelj/staratelj.
+
+
+
+
+Odabir tretmana
+
+
+Glavni akter:
+* Pacijent
+Drugi akteri:
+* Administracija
+Interesi:
+* Pacijent vrši odabir tretmana koji želi
+Preduslovi:
+* Pacijent mora biti punoljetan
+* Klinika obavlja tretman koji želi pacijent
+Rezultat:
+* Odabran tretman.
+Osnovni tok (Scenarij):
+*  Pacijent vrši odabir ponuđenih tretmana
+*  Administracija provjerava podatke pacijenta
+*  Pacijentu odobren tretman koji je izabrao
+Alternativni tok:
+* Klinika ne obavlja tretman koji pacijent želi
+* Pacijent je maloljetan, što znači da treba biti prisutan i jedan roditelj/staratelj
+Zakazivanje operacije
+
+
+Glavni akter:
+* Pacijent
+Drugi akteri:
+* Doktor
+Interesi:
+* Pacijent vrši odabir doktora
+* Doktor zakazuje operaciju
+Preduslovi:
+* Doktor koje pacijent želi je raspoloživ
+* Datum i vrijeme operacije odgovaraju i doktoru i pacijentu
+* Operacijska sala slobodna u zakazanom terminu
+Rezultat:
+* Zakazana operacija pacijenta
+Osnovni tok (Scenarij):
+*  Pacijent vrši odabir ponuđenih doktora
+*  Doktor provjerava kada je slobodan
+*  Doktor predlaže termin pacijentu
+*  Pacijent provjerava da li je slobodan u ponuđenom terminu
+*  Pacijent prihvata termin
+Alternativni tok:
+* Doktor kojeg pacijent želi nije raspoloživ
+* Termin operacije koji želi pacijent ne odgovara doktoru
+* Zauzeta operacijska sala u zakazanom terminu, operacija se odgađa
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Naplata usluga 
+
+
+Glavni akter:
+* Pacijent
+Drugi akteri:
+* Administracija
+Interesi:
+* Pacijent plaća troškove svog tretmana
+Preduslovi:
+* Pacijent je imao odredjeni tretman koji se naplaćuje
+Rezultat:
+* Promjena stanja računa klinike
+Osnovni tok (Scenarij):
+*  Korisnik se javlja u administraciji klinike da plati dug (gotovina ili kreditna kartica)
+* Administracija mu izdaje potvrdu da je sve uredno plaćeno
+
+
+Alternativni tok:
+* Korisnik nije izmirio svoja dugovanja nakon 15 dana, šalje mu se opomena.
+        
+
+
+Zapošljavanje novog osoblja
+
+
+Glavni akter:
+* Potencijalni kandidat za zapošljavanje
+Drugi akteri:
+* Administracija
+Interesi:
+* Kandidat ispunjava formular za zapošljavanje i predaje svoj CV
+Preduslovi:
+* Preduslovi koje postavlja administracija, a tiču se stručne spreme koju kandidat mora zadovoljavati
+Rezultat:
+* Zapošljavanje novog osoblja
+Osnovni tok (Scenarij):
+*  Kandidat se javlja u administraciju, ispunjava formular i predaje svoj CV
+* Adminsitracija vrši analizu i zapošljava kandidata
+Alternativni tok:
+* Kandidat nije zadovoljio uslove, i odbija se njegova prijavnica za posao
+
+
+
+
+
+
+Nabavka instrumenata i potrošnog materijala
+
+
+Glavni akter:
+* Administracija
+Interesi:
+* Vođenje računa o stanju potrošnog materijala i instrumentima potrebnim za rad klinike
+Rezultat:
+* Blagovremeno organizovana aparatura za rad klinike
+
+
+Osnovni tok (Scenarij):
+* Administracija klinike vodi računa o tome da se nove zalihe potrošnog materijala naručuju kada stare dodju na 20%.
+* Administracija vodi računa o tome da svi instrumenti budu pregledani svaka 3 mjeseca
+
+
+
+
+
+
+Obračun plate osoblja(računanje bonusa na osnovu ocjene)
+
+
+Glavni akter:
+* Administracija
+Drugi akteri:
+* Osoblje klinike(doktori i medicinske sestre i tehničari)
+Interesi:
+* Prilikom svakog tretmana doktor i njegovi pomoćnici će biti ocijenjen od strane pacijenta
+* Na osnovu te ocjene će medicinsko osoblje dobijati bonus na svoju platu
+Rezultat:
+* Izmirivanje plata medicinskom osoblju
+Osnovni tok (Scenarij):
+*  Administracija stavlja platu na račune medicinskog osoblja, i dodatni bonus zavisno od kritika koje su dobili od svojih pacijenata
