@@ -1,0 +1,158 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="mydbModel1.Store" Alias="Self" Provider="MySql.Data.MySqlClient" ProviderManifestToken="5.6" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityContainer Name="mydbModel1StoreContainer">
+          <EntitySet Name="bilo sta" EntityType="mydbModel1.Store.bilo sta" store:Type="Tables" store:Schema="mydb" store:Name="bilo sta">
+            <DefiningQuery>SELECT
+      `bilo sta`.`Uposlenici_idUposlenici`
+      FROM `bilo sta` AS `bilo sta`</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="pacijent" EntityType="mydbModel1.Store.pacijent" store:Type="Tables" Schema="mydb" />
+          <EntitySet Name="uposlenici" EntityType="mydbModel1.Store.uposlenici" store:Type="Tables" Schema="mydb" />
+          <AssociationSet Name="fk_Bilo sta_Uposlenici" Association="mydbModel1.Store.fk_Bilo sta_Uposlenici">
+            <End Role="uposlenici" EntitySet="uposlenici" />
+            <End Role="bilo sta" EntitySet="bilo sta" />
+          </AssociationSet>
+        </EntityContainer>
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'def.mydb.bilo sta' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
+      -->
+        <EntityType Name="bilo sta">
+          <Key>
+            <PropertyRef Name="Uposlenici_idUposlenici" />
+          </Key>
+          <Property Name="Uposlenici_idUposlenici" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="pacijent">
+          <Key>
+            <PropertyRef Name="idpacijent" />
+          </Key>
+          <Property Name="idpacijent" Type="int" Nullable="false" />
+          <Property Name="first_name" Type="varchar" MaxLength="45" />
+          <Property Name="password" Type="varchar" MaxLength="45" />
+        </EntityType>
+        <EntityType Name="uposlenici">
+          <Key>
+            <PropertyRef Name="idUposlenici" />
+          </Key>
+          <Property Name="idUposlenici" Type="int" Nullable="false" />
+          <Property Name="Uposlenicicol" Type="varchar" Nullable="false" MaxLength="45" />
+        </EntityType>
+        <Association Name="fk_Bilo sta_Uposlenici">
+          <End Role="uposlenici" Type="mydbModel1.Store.uposlenici" Multiplicity="1" />
+          <End Role="bilo sta" Type="mydbModel1.Store.bilo sta" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="uposlenici">
+              <PropertyRef Name="idUposlenici" />
+            </Principal>
+            <Dependent Role="bilo sta">
+              <PropertyRef Name="Uposlenici_idUposlenici" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="mydbModel1" Alias="Self" p1:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:p1="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="mydbEntities1" p1:LazyLoadingEnabled="true">
+          <EntitySet Name="bilo_sta" EntityType="mydbModel1.bilo_sta" />
+          <EntitySet Name="pacijent" EntityType="mydbModel1.pacijent" />
+          <EntitySet Name="uposlenici" EntityType="mydbModel1.uposlenici" />
+          <AssociationSet Name="fk_Bilo_sta_Uposlenici" Association="mydbModel1.fk_Bilo_sta_Uposlenici">
+            <End Role="uposlenici" EntitySet="uposlenici" />
+            <End Role="bilo_sta" EntitySet="bilo_sta" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="bilo_sta">
+          <Key>
+            <PropertyRef Name="Uposlenici_idUposlenici" />
+          </Key>
+          <Property Name="Uposlenici_idUposlenici" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="uposlenici" Relationship="mydbModel1.fk_Bilo_sta_Uposlenici" FromRole="bilo_sta" ToRole="uposlenici" />
+        </EntityType>
+        <EntityType Name="pacijent">
+          <Key>
+            <PropertyRef Name="idpacijent" />
+          </Key>
+          <Property Name="idpacijent" Type="Int32" Nullable="false" />
+          <Property Name="first_name" Type="String" MaxLength="45" Unicode="false" FixedLength="false" />
+          <Property Name="password" Type="String" MaxLength="45" Unicode="false" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="uposlenici">
+          <Key>
+            <PropertyRef Name="idUposlenici" />
+          </Key>
+          <Property Name="idUposlenici" Type="Int32" Nullable="false" />
+          <Property Name="Uposlenicicol" Type="String" Nullable="false" MaxLength="45" Unicode="false" FixedLength="false" />
+          <NavigationProperty Name="bilo_sta" Relationship="mydbModel1.fk_Bilo_sta_Uposlenici" FromRole="uposlenici" ToRole="bilo_sta" />
+        </EntityType>
+        <Association Name="fk_Bilo_sta_Uposlenici">
+          <End Role="uposlenici" Type="mydbModel1.uposlenici" Multiplicity="1" />
+          <End Role="bilo_sta" Type="mydbModel1.bilo_sta" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="uposlenici">
+              <PropertyRef Name="idUposlenici" />
+            </Principal>
+            <Dependent Role="bilo_sta">
+              <PropertyRef Name="Uposlenici_idUposlenici" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="mydbModel1StoreContainer" CdmEntityContainer="mydbEntities1">
+          <EntitySetMapping Name="bilo_sta">
+            <EntityTypeMapping TypeName="mydbModel1.bilo_sta">
+              <MappingFragment StoreEntitySet="bilo sta">
+                <ScalarProperty Name="Uposlenici_idUposlenici" ColumnName="Uposlenici_idUposlenici" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="pacijent">
+            <EntityTypeMapping TypeName="mydbModel1.pacijent">
+              <MappingFragment StoreEntitySet="pacijent">
+                <ScalarProperty Name="idpacijent" ColumnName="idpacijent" />
+                <ScalarProperty Name="first_name" ColumnName="first_name" />
+                <ScalarProperty Name="password" ColumnName="password" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="uposlenici">
+            <EntityTypeMapping TypeName="mydbModel1.uposlenici">
+              <MappingFragment StoreEntitySet="uposlenici">
+                <ScalarProperty Name="idUposlenici" ColumnName="idUposlenici" />
+                <ScalarProperty Name="Uposlenicicol" ColumnName="Uposlenicicol" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="False" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
