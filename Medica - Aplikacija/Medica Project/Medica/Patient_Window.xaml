@@ -1,0 +1,21 @@
+﻿<Window x:Class="Medica.Patient_Window"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Medica - Patient" Height="504" Width="376" Icon="doctor_red.ico">
+    <Grid x:Name="PatientWindow_void">
+        <Label x:Name="Treatment_Label" Content="Treatment" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="16,34,0,0"/>
+        <Label x:Name="Doctor_Label" Content="Doctor" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="16,61,0,0"/>
+        <Label x:Name="TreatmentDate__DatePicker" Content="Date of treatment" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="16,89,0,0"/>
+        <ComboBox x:Name="Doctor_ComboBox" HorizontalAlignment="Left" VerticalAlignment="Top" Width="180" Margin="159,62,0,0"/>
+        <DatePicker x:Name="TreatmentDate_DateTimePicker" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="159,90,0,0" Width="180"/>
+        <Label x:Name="Info_Label" Content="Schedule your treatment" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="16,139,0,0" FontWeight="Bold"/>
+        <ListBox x:Name="Preview_ListBox" HorizontalAlignment="Left" Height="131" VerticalAlignment="Top" Width="323" Margin="16,170,0,0"/>
+        <Button x:Name="LogOff_Button" Content="Log off" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Margin="184,413,0,0" Click="LogOff_Button_Click"/>
+        <Button x:Name="Feedback_Button" Content="Leave feedback for previous treatments" HorizontalAlignment="Left" VerticalAlignment="Top" Width="220" Margin="119,368,0,0" Background="White" BorderBrush="White" Click="Feedback_Button_Click"/>
+        <Button x:Name="Info_Button" Content="More information about our personel" HorizontalAlignment="Left" VerticalAlignment="Top" Width="210" Margin="129,388,0,0" Background="White" BorderBrush="White" Click="Info_Button_Click"/>
+        <ComboBox x:Name="Treatment_ComboBox1" HorizontalAlignment="Left" VerticalAlignment="Top" Width="180" Margin="159,34,0,0" />
+        <Button x:Name="Preview_Button" Content="Preview" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Margin="264,306,0,0" FontStyle="Italic" Click="Preview_Button_Click"/>
+        <Button x:Name="Schedule_Button" Content="Schedule" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Margin="264,413,0,0" Click="Schedule_Button_Click"/>
+
+    </Grid>
+</Window>

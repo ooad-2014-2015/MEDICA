@@ -1,0 +1,307 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{903676F7-C1DE-4818-9FCD-EA174BEBF0D5}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Medica</RootNamespace>
+    <AssemblyName>Medica</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>doctor_briefcase_blue.ico</ApplicationIcon>
+  </PropertyGroup>
+  <PropertyGroup />
+  <PropertyGroup>
+    <NoWin32Manifest>true</NoWin32Manifest>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Expression.Encoder, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=x86">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\..\Program Files (x86)\Microsoft Expression\Encoder 4\SDK\Microsoft.Expression.Encoder.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Expression.Encoder.Api2, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=x86">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\..\Program Files (x86)\Microsoft Expression\Encoder 4\SDK\Microsoft.Expression.Encoder.Api2.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Expression.Encoder.Types, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=x86">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\..\Program Files (x86)\Microsoft Expression\Encoder 4\SDK\Microsoft.Expression.Encoder.Types.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Expression.Encoder.Utilities, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=x86">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\..\Program Files (x86)\Microsoft Expression\Encoder 4\SDK\Microsoft.Expression.Encoder.Utilities.dll</HintPath>
+    </Reference>
+    <Reference Include="MySql.Data, Version=6.9.6.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\MySql.Data.6.9.6\lib\net45\MySql.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="MySql.Data.Entity, Version=6.9.6.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL" />
+    <Reference Include="MySql.Data.Entity.EF6, Version=6.9.6.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
+      <HintPath>..\packages\MySql.Data.Entity.6.9.6\lib\net45\MySql.Data.Entity.EF6.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Data.Entity" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Xaml">
+      <RequiredTargetFramework>4.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="WebcamControl, Version=3.0.0.0, Culture=neutral, processorArchitecture=x86">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\WebKamera\WebcamControl.dll</HintPath>
+    </Reference>
+    <Reference Include="WindowsBase" />
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+    <Reference Include="WindowsFormsIntegration" />
+  </ItemGroup>
+  <ItemGroup>
+    <ApplicationDefinition Include="App.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </ApplicationDefinition>
+    <Compile Include="administracija.cs">
+      <DependentUpon>Medica_ADO.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Admin_Window.xaml.cs">
+      <DependentUpon>Admin_Window.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Doctor_Window.xaml.cs">
+      <DependentUpon>Doctor_Window.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="doktori.cs">
+      <DependentUpon>Medica_ADO.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Feedback_Window.xaml.cs">
+      <DependentUpon>Feedback_Window.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Info_Window.xaml.cs">
+      <DependentUpon>Info_Window.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Medica_ADO.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Medica_ADO.tt</DependentUpon>
+    </Compile>
+    <Compile Include="NewAccount_Window.xaml.cs">
+      <DependentUpon>NewAccount_Window.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="NewDoctor_Windows.xaml.cs">
+      <DependentUpon>NewDoctor_Windows.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="pacijenti.cs">
+      <DependentUpon>Medica_ADO.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Patient_Window.xaml.cs">
+      <DependentUpon>Patient_Window.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="termini.cs">
+      <DependentUpon>Medica_ADO.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tretmani.cs">
+      <DependentUpon>Medica_ADO.tt</DependentUpon>
+    </Compile>
+    <Compile Include="VM klase\AdminWindow_VM.cs" />
+    <Compile Include="VM klase\DoctorWindow_VM.cs" />
+    <Compile Include="VM klase\FeedbackWindow_VM.cs" />
+    <Compile Include="VM klase\InfoWindow_VM.cs" />
+    <Compile Include="VM klase\MainWindow_VM.cs" />
+    <Compile Include="VM klase\NewAccount_VM.cs" />
+    <Compile Include="VM klase\NewDoctor_VM.cs" />
+    <Compile Include="VM klase\PatientWindow_VM.cs" />
+    <Compile Include="VM klase\WagesWindow_VM.cs" />
+    <Compile Include="Wages_Window.xaml.cs">
+      <DependentUpon>Wages_Window.xaml</DependentUpon>
+    </Compile>
+    <Page Include="Admin_Window.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Doctor_Window.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Feedback_Window.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Info_Window.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="MainWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Compile Include="App.xaml.cs">
+      <DependentUpon>App.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="MainWindow.xaml.cs">
+      <DependentUpon>MainWindow.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Page Include="NewAccount_Window.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="NewDoctor_Windows.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Patient_Window.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Wages_Window.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="medicadbDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>medicadbDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Medica_ADO.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Medica_ADO.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Medica_ADO.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Medica_ADO.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <None Include="medicadbDataSet.xsc">
+      <DependentUpon>medicadbDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="medicadbDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>medicadbDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="medicadbDataSet.xss">
+      <DependentUpon>medicadbDataSet.xsd</DependentUpon>
+    </None>
+    <EntityDeploy Include="Medica_ADO.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>Medica_ADO.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="Medica_ADO.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Medica_ADO.edmx</DependentUpon>
+      <LastGenOutput>Medica_ADO.Context.cs</LastGenOutput>
+    </None>
+    <None Include="Medica_ADO.edmx.diagram">
+      <DependentUpon>Medica_ADO.edmx</DependentUpon>
+    </None>
+    <None Include="Medica_ADO.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Medica_ADO.edmx</DependentUpon>
+      <LastGenOutput>Medica_ADO.cs</LastGenOutput>
+    </None>
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <AppDesigner Include="Properties\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="doctor_briefcase_red.ico">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="doctor_red.ico">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="doctor_blue.ico">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="doctor_briefcase_blue.ico">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

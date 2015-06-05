@@ -1,0 +1,21 @@
+﻿<Window x:Class="Medica.Admin_Window"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Medica - Admin" Height="694.05" Width="386" Icon="doctor_blue.ico">
+    <Grid>
+        <Label x:Name="Doctor_Label" Content="Doctor" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="23,161,0,0"/>
+        <Label x:Name="Date_Label" Content="Date of treatment" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="23,187,0,0"/>
+        <DatePicker x:Name="TreatmentDate_DateTimePicker" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="139,189,0,0" Width="208"/>
+        <Label x:Name="Treatments_Label" Content="Treatments scheduled for selected date" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="23,243,0,0" FontWeight="Bold"/>
+        <ListBox x:Name="Treatments_ListBox" HorizontalAlignment="Left" Height="166" VerticalAlignment="Top" Width="324" Margin="23,296,0,0"/>
+        <Button x:Name="LogOff_Button" Content="Log off" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Margin="272,589,0,0" Click="LogOff_Button_Click"/>
+        <ComboBox x:Name="Doctor_ComboBox" HorizontalAlignment="Left" VerticalAlignment="Top" Width="208" Margin="139,161,0,0"/>
+        <Button x:Name="Preview_Button" Content="Preview" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Margin="272,468,0,0" RenderTransformOrigin="0.507,1.091" Click="Preview_Button_Click"/>
+        <Image HorizontalAlignment="Left" Height="100" VerticalAlignment="Top" Width="100" Margin="120,14,0,0" Source="doctor_briefcase_blue.ico"/>
+        <Label x:Name="Admin_Label" Content="ADMIN" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="145,114,0,0" FontWeight="Bold"/>
+        <Button x:Name="NewDoctor_Button" Content="Add new physician to medical roster" HorizontalAlignment="Left" VerticalAlignment="Top" Width="202" Margin="145,562,0,0" Background="{x:Null}" BorderBrush="{x:Null}" FontStyle="Italic" Click="NewDoctor_Button_Click"/>
+        <Button x:Name="Wages_Button" Content="Pay wages to medical personel" HorizontalAlignment="Left" VerticalAlignment="Top" Width="177" Margin="170,540,0,0" Background="{x:Null}" BorderBrush="{x:Null}" FontStyle="Italic" Click="Wages_Button_Click"/>
+        <Label x:Name="Help_Label" Content="Double click on Preview button" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="23,265,0,0"/>
+
+    </Grid>
+</Window>

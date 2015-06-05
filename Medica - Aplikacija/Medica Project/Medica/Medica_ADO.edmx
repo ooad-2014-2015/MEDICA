@@ -1,0 +1,308 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="medicadbModel.Store" Alias="Self" Provider="MySql.Data.MySqlClient" ProviderManifestToken="5.6" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityContainer Name="medicadbModelStoreContainer">
+          <EntitySet Name="administracija" EntityType="medicadbModel.Store.administracija" store:Type="Tables" Schema="medicadb" />
+          <EntitySet Name="doktori" EntityType="medicadbModel.Store.doktori" store:Type="Tables" Schema="medicadb" />
+          <EntitySet Name="pacijenti" EntityType="medicadbModel.Store.pacijenti" store:Type="Tables" Schema="medicadb" />
+          <EntitySet Name="termini" EntityType="medicadbModel.Store.termini" store:Type="Tables" Schema="medicadb" />
+          <EntitySet Name="tretmani" EntityType="medicadbModel.Store.tretmani" store:Type="Tables" Schema="medicadb" />
+          <AssociationSet Name="fk_Termini_Doktori1" Association="medicadbModel.Store.fk_Termini_Doktori1">
+            <End Role="doktori" EntitySet="doktori" />
+            <End Role="termini" EntitySet="termini" />
+          </AssociationSet>
+          <AssociationSet Name="fk_Termini_Pacijenti1" Association="medicadbModel.Store.fk_Termini_Pacijenti1">
+            <End Role="pacijenti" EntitySet="pacijenti" />
+            <End Role="termini" EntitySet="termini" />
+          </AssociationSet>
+          <AssociationSet Name="fk_Termini_Tretmani1" Association="medicadbModel.Store.fk_Termini_Tretmani1">
+            <End Role="tretmani" EntitySet="tretmani" />
+            <End Role="termini" EntitySet="termini" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="administracija">
+          <Key>
+            <PropertyRef Name="idAdministracija" />
+          </Key>
+          <Property Name="idAdministracija" Type="int" Nullable="false" />
+          <Property Name="username" Type="varchar" MaxLength="45" />
+          <Property Name="password" Type="varchar" MaxLength="45" />
+        </EntityType>
+        <EntityType Name="doktori">
+          <Key>
+            <PropertyRef Name="idDoktori" />
+          </Key>
+          <Property Name="idDoktori" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="ime" Type="varchar" MaxLength="45" />
+          <Property Name="prezime" Type="varchar" MaxLength="45" />
+          <Property Name="username" Type="varchar" MaxLength="45" />
+          <Property Name="password" Type="varchar" MaxLength="45" />
+          <Property Name="specijalnost" Type="varchar" MaxLength="45" />
+        </EntityType>
+        <EntityType Name="pacijenti">
+          <Key>
+            <PropertyRef Name="idPacijenti" />
+          </Key>
+          <Property Name="idPacijenti" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="ime" Type="varchar" MaxLength="45" />
+          <Property Name="prezime" Type="varchar" MaxLength="45" />
+          <Property Name="username" Type="varchar" MaxLength="45" />
+          <Property Name="password" Type="varchar" MaxLength="45" />
+        </EntityType>
+        <EntityType Name="termini">
+          <Key>
+            <PropertyRef Name="idTermini" />
+          </Key>
+          <Property Name="idTermini" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Pacijenti_idPacijenti" Type="int" Nullable="false" />
+          <Property Name="Doktori_idDoktor" Type="int" Nullable="false" />
+          <Property Name="datumTermina" Type="date" />
+          <Property Name="satiTermina" Type="int" />
+          <Property Name="ocjenaTermina" Type="int" />
+          <Property Name="soba" Type="int" />
+          <Property Name="Tretmani_idTretmani" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="tretmani">
+          <Key>
+            <PropertyRef Name="idTretmani" />
+          </Key>
+          <Property Name="idTretmani" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="naziv" Type="mediumtext" />
+        </EntityType>
+        <Association Name="fk_Termini_Doktori1">
+          <End Role="doktori" Type="medicadbModel.Store.doktori" Multiplicity="1" />
+          <End Role="termini" Type="medicadbModel.Store.termini" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="doktori">
+              <PropertyRef Name="idDoktori" />
+            </Principal>
+            <Dependent Role="termini">
+              <PropertyRef Name="Doktori_idDoktor" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_Termini_Pacijenti1">
+          <End Role="pacijenti" Type="medicadbModel.Store.pacijenti" Multiplicity="1" />
+          <End Role="termini" Type="medicadbModel.Store.termini" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="pacijenti">
+              <PropertyRef Name="idPacijenti" />
+            </Principal>
+            <Dependent Role="termini">
+              <PropertyRef Name="Pacijenti_idPacijenti" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_Termini_Tretmani1">
+          <End Role="tretmani" Type="medicadbModel.Store.tretmani" Multiplicity="1" />
+          <End Role="termini" Type="medicadbModel.Store.termini" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tretmani">
+              <PropertyRef Name="idTretmani" />
+            </Principal>
+            <Dependent Role="termini">
+              <PropertyRef Name="Tretmani_idTretmani" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="medicadbModel" Alias="Self" p1:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:p1="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="medicadbEntities" p1:LazyLoadingEnabled="true">
+          <EntitySet Name="administracija" EntityType="medicadbModel.administracija" />
+          <EntitySet Name="doktori" EntityType="medicadbModel.doktori" />
+          <EntitySet Name="pacijenti" EntityType="medicadbModel.pacijenti" />
+          <EntitySet Name="termini" EntityType="medicadbModel.termini" />
+          <AssociationSet Name="fk_Termini_Doktori1" Association="medicadbModel.fk_Termini_Doktori1">
+            <End Role="doktori" EntitySet="doktori" />
+            <End Role="termini" EntitySet="termini" />
+          </AssociationSet>
+          <AssociationSet Name="fk_Termini_Pacijenti1" Association="medicadbModel.fk_Termini_Pacijenti1">
+            <End Role="pacijenti" EntitySet="pacijenti" />
+            <End Role="termini" EntitySet="termini" />
+          </AssociationSet>
+          <EntitySet Name="tretmani" EntityType="medicadbModel.tretmani" />
+          <AssociationSet Name="fk_Termini_Tretmani1" Association="medicadbModel.fk_Termini_Tretmani1">
+            <End Role="tretmani" EntitySet="tretmani" />
+            <End Role="termini" EntitySet="termini" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="administracija">
+          <Key>
+            <PropertyRef Name="idAdministracija" />
+          </Key>
+          <Property Name="idAdministracija" Type="Int32" Nullable="false" />
+          <Property Name="username" Type="String" MaxLength="45" Unicode="false" FixedLength="false" />
+          <Property Name="password" Type="String" MaxLength="45" Unicode="false" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="doktori">
+          <Key>
+            <PropertyRef Name="idDoktori" />
+          </Key>
+          <Property Name="idDoktori" Type="Int32" Nullable="false" />
+          <Property Name="ime" Type="String" MaxLength="45" Unicode="false" FixedLength="false" />
+          <Property Name="prezime" Type="String" MaxLength="45" Unicode="false" FixedLength="false" />
+          <Property Name="username" Type="String" MaxLength="45" Unicode="false" FixedLength="false" />
+          <Property Name="password" Type="String" MaxLength="45" Unicode="false" FixedLength="false" />
+          <Property Name="specijalnost" Type="String" MaxLength="45" Unicode="false" FixedLength="false" />
+          <NavigationProperty Name="termini" Relationship="medicadbModel.fk_Termini_Doktori1" FromRole="doktori" ToRole="termini" />
+        </EntityType>
+        <EntityType Name="pacijenti">
+          <Key>
+            <PropertyRef Name="idPacijenti" />
+          </Key>
+          <Property Name="idPacijenti" Type="Int32" Nullable="false" />
+          <Property Name="ime" Type="String" MaxLength="45" Unicode="false" FixedLength="false" />
+          <Property Name="prezime" Type="String" MaxLength="45" Unicode="false" FixedLength="false" />
+          <Property Name="username" Type="String" MaxLength="45" Unicode="false" FixedLength="false" />
+          <Property Name="password" Type="String" MaxLength="45" Unicode="false" FixedLength="false" />
+          <NavigationProperty Name="termini" Relationship="medicadbModel.fk_Termini_Pacijenti1" FromRole="pacijenti" ToRole="termini" />
+        </EntityType>
+        <EntityType Name="termini">
+          <Key>
+            <PropertyRef Name="idTermini" />
+          </Key>
+          <Property Name="idTermini" Type="Int32" Nullable="false" />
+          <Property Name="Pacijenti_idPacijenti" Type="Int32" Nullable="false" />
+          <Property Name="Doktori_idDoktor" Type="Int32" Nullable="false" />
+          <Property Name="datumTermina" Type="DateTime" Precision="0" />
+          <Property Name="satiTermina" Type="Int32" />
+          <Property Name="ocjenaTermina" Type="Int32" />
+          <Property Name="soba" Type="Int32" />
+          <NavigationProperty Name="doktori" Relationship="medicadbModel.fk_Termini_Doktori1" FromRole="termini" ToRole="doktori" />
+          <NavigationProperty Name="pacijenti" Relationship="medicadbModel.fk_Termini_Pacijenti1" FromRole="termini" ToRole="pacijenti" />
+          <Property Type="Int32" Name="Tretmani_idTretmani" Nullable="false" />
+          <NavigationProperty Name="tretmani" Relationship="medicadbModel.fk_Termini_Tretmani1" FromRole="termini" ToRole="tretmani" />
+        </EntityType>
+        <Association Name="fk_Termini_Doktori1">
+          <End Role="doktori" Type="medicadbModel.doktori" Multiplicity="1" />
+          <End Role="termini" Type="medicadbModel.termini" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="doktori">
+              <PropertyRef Name="idDoktori" />
+            </Principal>
+            <Dependent Role="termini">
+              <PropertyRef Name="Doktori_idDoktor" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_Termini_Pacijenti1">
+          <End Role="pacijenti" Type="medicadbModel.pacijenti" Multiplicity="1" />
+          <End Role="termini" Type="medicadbModel.termini" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="pacijenti">
+              <PropertyRef Name="idPacijenti" />
+            </Principal>
+            <Dependent Role="termini">
+              <PropertyRef Name="Pacijenti_idPacijenti" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="tretmani">
+          <Key>
+            <PropertyRef Name="idTretmani" />
+          </Key>
+          <Property Type="Int32" Name="idTretmani" Nullable="false" />
+          <Property Type="String" Name="naziv" MaxLength="16777215" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="termini" Relationship="medicadbModel.fk_Termini_Tretmani1" FromRole="tretmani" ToRole="termini" />
+        </EntityType>
+        <Association Name="fk_Termini_Tretmani1">
+          <End Type="medicadbModel.tretmani" Role="tretmani" Multiplicity="1" />
+          <End Type="medicadbModel.termini" Role="termini" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tretmani">
+              <PropertyRef Name="idTretmani" />
+            </Principal>
+            <Dependent Role="termini">
+              <PropertyRef Name="Tretmani_idTretmani" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="medicadbModelStoreContainer" CdmEntityContainer="medicadbEntities">
+          <EntitySetMapping Name="administracija">
+            <EntityTypeMapping TypeName="medicadbModel.administracija">
+              <MappingFragment StoreEntitySet="administracija">
+                <ScalarProperty Name="idAdministracija" ColumnName="idAdministracija" />
+                <ScalarProperty Name="username" ColumnName="username" />
+                <ScalarProperty Name="password" ColumnName="password" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="doktori">
+            <EntityTypeMapping TypeName="medicadbModel.doktori">
+              <MappingFragment StoreEntitySet="doktori">
+                <ScalarProperty Name="idDoktori" ColumnName="idDoktori" />
+                <ScalarProperty Name="ime" ColumnName="ime" />
+                <ScalarProperty Name="prezime" ColumnName="prezime" />
+                <ScalarProperty Name="username" ColumnName="username" />
+                <ScalarProperty Name="password" ColumnName="password" />
+                <ScalarProperty Name="specijalnost" ColumnName="specijalnost" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="pacijenti">
+            <EntityTypeMapping TypeName="medicadbModel.pacijenti">
+              <MappingFragment StoreEntitySet="pacijenti">
+                <ScalarProperty Name="idPacijenti" ColumnName="idPacijenti" />
+                <ScalarProperty Name="ime" ColumnName="ime" />
+                <ScalarProperty Name="prezime" ColumnName="prezime" />
+                <ScalarProperty Name="username" ColumnName="username" />
+                <ScalarProperty Name="password" ColumnName="password" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="termini">
+            <EntityTypeMapping TypeName="medicadbModel.termini">
+              <MappingFragment StoreEntitySet="termini">
+                <ScalarProperty Name="Tretmani_idTretmani" ColumnName="Tretmani_idTretmani" />
+                <ScalarProperty Name="idTermini" ColumnName="idTermini" />
+                <ScalarProperty Name="Pacijenti_idPacijenti" ColumnName="Pacijenti_idPacijenti" />
+                <ScalarProperty Name="Doktori_idDoktor" ColumnName="Doktori_idDoktor" />
+                <ScalarProperty Name="datumTermina" ColumnName="datumTermina" />
+                <ScalarProperty Name="satiTermina" ColumnName="satiTermina" />
+                <ScalarProperty Name="ocjenaTermina" ColumnName="ocjenaTermina" />
+                <ScalarProperty Name="soba" ColumnName="soba" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tretmani">
+            <EntityTypeMapping TypeName="medicadbModel.tretmani">
+              <MappingFragment StoreEntitySet="tretmani">
+                <ScalarProperty Name="naziv" ColumnName="naziv" />
+                <ScalarProperty Name="idTretmani" ColumnName="idTretmani" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="False" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

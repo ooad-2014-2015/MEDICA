@@ -1,0 +1,16 @@
+﻿<Window x:Class="Medica.Doctor_Window"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Medica - Doctor" Height="553" Width="314" Icon="doctor_blue.ico">
+    <Grid>
+        <Image HorizontalAlignment="Left" Height="100" VerticalAlignment="Top" Width="100" Margin="95,19,0,0" Source="doctor_blue.ico"/>
+        <Label x:Name="Info_Label" Content="Doctor" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="123,119,0,0" FontWeight="Bold"/>
+        <DatePicker x:Name="Date_DatePicker" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="91,160,0,0" Width="188"/>
+        <Label x:Name="Date_Label" Content="Pick a date" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="19,160,0,0"/>
+        <ListBox x:Name="Treatments_ListBox" HorizontalAlignment="Left" Height="162" VerticalAlignment="Top" Width="260" Margin="19,222,0,0"/>
+        <Label x:Name="Scheduled_Label" Content="Treatments scheduled for selected date" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="19,191,0,0" FontWeight="Bold"/>
+        <Button x:Name="LogOff_Button" Content="Log off" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Margin="204,469,0,0" Click="LogOff_Button_Click"/>
+        <Button x:Name="Preview_Button" Content="Preview" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Margin="204,389,0,0" Click="Preview_Button_Click"/>
+
+    </Grid>
+</Window>
