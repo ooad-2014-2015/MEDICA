@@ -20,6 +20,22 @@ namespace Medica.VM_klase
 
             try
             {
+                if (name == "" || surname == "" || Username == "" || Password == "" || repeat_password == "" || Specijalnost == "") throw new Exception();
+            }
+            catch (Exception)
+            {
+                doctor.Name_TextBox.Text = "";
+                doctor.Surname_TextBox.Text = "";
+                doctor.Username_TextBox.Text = "";
+                doctor.Password_PasswordBox.Password = "";
+                doctor.RepeatPassword_PasswordBox.Password = "";
+                doctor.Specialized_TextBox.Text = "";
+                state = false;
+                System.Windows.MessageBox.Show("Provided data is not valid");
+            }
+
+            try
+            {
                 if (Password != repeat_password) throw new Exception();
             }
             catch (Exception)

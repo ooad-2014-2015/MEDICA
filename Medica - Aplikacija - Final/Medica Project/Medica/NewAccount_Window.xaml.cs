@@ -68,7 +68,7 @@ namespace Medica
             Process pr = new Process();
             ProcessStartInfo prs = new ProcessStartInfo();
             //prs.FileName = @Environment.CurrentDirectory + @"\WebKamera\WebKamera\WebKamera\bin\Debug\WebKamera2";
-            prs.FileName = @"C:\Users\Jarvis v2\Desktop\Medica - Aplikacija\Medica Project\WebKamera\WebKamera\WebKamera\bin\Debug\WebKamera";            
+            prs.FileName = @Environment.CurrentDirectory + @"\WebKamera";            
             pr.StartInfo = prs;
             pr.Start();
         }

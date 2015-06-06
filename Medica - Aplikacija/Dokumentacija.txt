@@ -1,6 +1,0 @@
-Desktop aplikacija
-Igra (pokrece se preko threada iz aplikacije)
-Vanjski uredjaj - kamera ((pokrece se preko threada iz aplikacije))
-
-Default admin account: 
-user admin, pw admin

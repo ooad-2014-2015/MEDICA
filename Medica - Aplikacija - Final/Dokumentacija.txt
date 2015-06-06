@@ -1,0 +1,5 @@
+Popravljen je path pokretanja kamere i igre. (U prvoj verziji psotavljen lokalno)
+Kamera i igra se pale preko threadova
+
+default admin data
+user:adminpw:admin

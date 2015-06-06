@@ -140,7 +140,7 @@ namespace Medica.VM_klase
 
             Process pr = new Process();
             ProcessStartInfo prs = new ProcessStartInfo();
-            prs.FileName = @"C:\Users\Jarvis v2\Desktop\Medica - Aplikacija\Medica Project\Game\MEDICA-labirinth";
+            prs.FileName = @Environment.CurrentDirectory + @"\Game\MEDICA-Labirinth";
             pr.StartInfo = prs;
             pr.Start();
 
