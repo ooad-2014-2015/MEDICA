@@ -1,5 +1,10 @@
-Popravljen je path pokretanja kamere i igre. (U prvoj verziji psotavljen lokalno)
-Kamera i igra se pale preko threadova
+U prvoj komitanoj verziji se nisu prebacili svi assembly fileovi jer je došlo do nekog konflikta pa je sada ponovljen push.
+Nadam se da ćete imati razumjevanja.
+
+Popravljen je path pokretanja kamere i igre. (U prvoj verziji postavljen lokalno)
+Kamera i igra se pale preko threadova.
 
 default admin data
-user:adminpw:admin
+user:admin
+pw:admin
+
